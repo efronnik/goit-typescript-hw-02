@@ -10,16 +10,17 @@ import Container from "../Container/Container";
 import MainSection from "../MainSection/MainSection";
 import Notification from "../Notification/Notification";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import {usePhotos} from "../../hooks/usePhoto";
+import {usePhotos} from "../../hooks/usePhotos.js";
+import {IPhoto} from "./App.types";
 
 function App() {
   const {page, photos, totalPages, isLoading, error, searchPhotos, loadMore} =
     usePhotos();
 
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<IPhoto | null>(null);
 
-  const onModalOpen = (photo) => {
+  const onModalOpen = (photo: IPhoto) => {
     setSelectedPhoto(photo);
     setIsOpen(true);
     document.body.classList.add("modal-open");
@@ -49,11 +50,13 @@ function App() {
           </div>
         )}
       </MainSection>
-      <ImageModal
-        photo={selectedPhoto}
-        closeModal={onModalClose}
-        modalIsOpen={modalIsOpen}
-      />
+      {selectedPhoto && (
+        <ImageModal
+          photo={selectedPhoto}
+          closeModal={onModalClose}
+          modalIsOpen={modalIsOpen}
+        />
+      )}
     </Container>
   );
 }

@@ -1,6 +1,7 @@
 import css from "./ImageCard.module.css";
+import {IImageCardProps} from "./ImageCard.types";
 
-const ImageCard = ({imgUrl, description, onModalOpen}) => {
+const ImageCard = ({imgUrl, description, onModalOpen}: IImageCardProps) => {
   return (
     <div className={css.card}>
       <img

@@ -5,10 +5,11 @@ import {MdDownload} from "react-icons/md";
 import {formattingData} from "../../helpers/formattingDate.js";
 import {modalStyles} from "../../utils/modalStyles.js";
 import Modal from "react-modal";
+import {IImageModalProps} from "./ImageModal.types";
 
 Modal.setAppElement("#root");
 
-const ImageModal = ({modalIsOpen, photo, closeModal}) => {
+const ImageModal = ({modalIsOpen, photo, closeModal}: IImageModalProps) => {
   return (
     <Modal
       isOpen={modalIsOpen}
