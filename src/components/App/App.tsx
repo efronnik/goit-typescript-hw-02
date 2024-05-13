@@ -10,7 +10,7 @@ import Container from "../Container/Container";
 import MainSection from "../MainSection/MainSection";
 import Notification from "../Notification/Notification";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
-import {usePhotos} from "../../hooks/usePhotos.js";
+import {usePhotos} from "../../hooks/usePhotos";
 import {IPhoto} from "./App.types";
 
 function App() {
